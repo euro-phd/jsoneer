@@ -68,26 +68,30 @@ fn main() {
         }
         2 => {
             // Extract JSON string from argument
-            let json_str = &args[1];
+            let json_file = &args[1];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let parsed_json = json::parse(json_str).expect("Failed to parse JSON");
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
 
             match parsed_json {
                 JsonValue::Object(map) => {
                     print_json_value(&JsonValue::Object(map.clone()), "");
-                }
+                },
+                JsonValue::Array(map) => {
+                    print_json_value(&JsonValue::Array(map.clone()), "");
+                },
                 _ => println!("JSON is not an object"),
             }
         }
         4 if args[1] == "-u" => {
             // Extract arguments
             let replacement = &args[2];
-            let json_str = &args[3];
+            let json_file = &args[3];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let mut parsed_json = json::parse(json_str).expect("Failed to parse JSON");
-
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
             // Replace values in the JSON
             replace_json_values(&mut parsed_json, replacement, &args[1]);
 
@@ -97,11 +101,11 @@ fn main() {
         4 if args[1] == "-n" => {
             // Extract arguments
             let replacement = &args[2];
-            let json_str = &args[3];
+            let json_file = &args[3];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let mut parsed_json = json::parse(json_str).expect("Failed to parse JSON");
-
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
             // Replace values in the JSON
             replace_json_values(&mut parsed_json, replacement, &args[1]);
 
@@ -111,11 +115,11 @@ fn main() {
         4 if args[1] == "-t" => {
             // Extract arguments
             let replacement = &args[2];
-            let json_str = &args[3];
+            let json_file = &args[3];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let mut parsed_json = json::parse(json_str).expect("Failed to parse JSON");
-
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
             // Replace values in the JSON
             replace_json_values(&mut parsed_json, replacement, &args[1]);
 
@@ -125,11 +129,11 @@ fn main() {
         4 if args[1] == "-f" => {
             // Extract arguments
             let replacement = &args[2];
-            let json_str = &args[3];
+            let json_file = &args[3];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let mut parsed_json = json::parse(json_str).expect("Failed to parse JSON");
-
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
             // Replace values in the JSON
             replace_json_values(&mut parsed_json, replacement, &args[1]);
 
@@ -139,11 +143,11 @@ fn main() {
         4 if args[1] == "-a" => {
             // Extract arguments
             let replacement = &args[2];
-            let json_str = &args[3];
+            let json_file = &args[3];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let mut parsed_json = json::parse(json_str).expect("Failed to parse JSON");
-
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
             // Replace values in the JSON
             replace_json_values(&mut parsed_json, replacement, &args[1]);
 
@@ -153,11 +157,11 @@ fn main() {
         4 if args[1] == "-o" => {
             // Extract arguments
             let replacement = &args[2];
-            let json_str = &args[3];
+           let json_file = &args[3];
+            let json_str = std::fs::read_to_string(&json_file).expect("file does not exist");
 
             // Parse the JSON string
-            let mut parsed_json = json::parse(json_str).expect("Failed to parse JSON");
-
+            let mut parsed_json = json::parse(&json_str).expect("Failed to parse JSON");
             // Replace values in the JSON
             replace_json_values(&mut parsed_json, replacement, &args[1]);
 
