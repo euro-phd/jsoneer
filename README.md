@@ -3,11 +3,11 @@
 usage:
 ```bash
 # to read json in rusty way
-jsoneer example.json 
+jsoneer show example.json 
 # to replace every value with "placeholder"
-jsoneer -u placeholder example.json 
+jsoneer set example.json -m u placeholder 
 # to replace with null,false,true,[],{} respectfully 
-jsoneer -[n|f|t|a|o] placeholder example.json 
+jsoneer set example.json -m [n|f|t|a|o] 
 ```
 
 
