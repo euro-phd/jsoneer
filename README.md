@@ -1,6 +1,5 @@
-**Roadmap:**
-
-usage:
+![example workflow](https://github.com/euro-phd/jsoneer/actions/workflows/rust.yml/badge.svg)
+# Usage:
 ```bash
 # to read json in rusty way
 jsoneer show example.json 
@@ -10,7 +9,7 @@ jsoneer set example.json -m u placeholder
 jsoneer set example.json -m [n|f|t|a|o] 
 ```
 
-
+# Roadmap:
 - [x] Replace all values in the json by 'null','false','true', '{}', '[]' and user-specified
 - [x] Support filenames as input
 - [x] Move to "clap" for parsing
