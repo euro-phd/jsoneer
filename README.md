@@ -13,8 +13,8 @@ jsoneer -[n|f|t|a|o] placeholder example.json
 
 - [x] Replace all values in the json by 'null','false','true', '{}', '[]' and user-specified
 - [x] Support filenames as input
-- [ ] Move to "clap" for parsing
-- [ ] Raplce values one-by-one, replace with 'shifting', or by index
+- [x] Move to "clap" for parsing
+- [ ] Raplce values one-by-one, replace with 'shifting', or by index **IN PROGRESS**
 - [ ] Generate payloads based on the ruleset
 - [ ] Host web version
 - [ ] Create simple GUI/TUI
